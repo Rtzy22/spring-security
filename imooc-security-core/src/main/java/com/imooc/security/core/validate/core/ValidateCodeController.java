@@ -1,5 +1,6 @@
 package com.imooc.security.core.validate.core;
 
+import com.imooc.security.core.validate.core.image.ImageCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.social.connect.web.HttpSessionSessionStrategy;
 import org.springframework.social.connect.web.SessionStrategy;
@@ -27,7 +28,7 @@ public class ValidateCodeController {
 
     @GetMapping("/code/image")
     public void createCode(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        ImageCode imageCode = imageCodeGennerator.createImageCode(new ServletWebRequest(request));
+        ImageCode imageCode = imageCodeGennerator.create(new ServletWebRequest(request));
         sessionStrategy.setAttribute(new ServletWebRequest(request), SESSION_KEY, imageCode);
         ImageIO.write(imageCode.getImage(), "JPEG", response.getOutputStream());
     }

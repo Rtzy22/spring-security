@@ -1,6 +1,7 @@
-package com.imooc.security.core.validate.core;
+package com.imooc.security.core.validate.core.image;
 
 import com.imooc.security.core.properties.SecurityProperties;
+import com.imooc.security.core.validate.core.ValidateCodeGenerator;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,7 +23,7 @@ public class ImageCodeGenerator implements ValidateCodeGenerator {
     private SecurityProperties securityProperties;
 
     @Override
-    public ImageCode createImageCode(ServletWebRequest request) {
+    public ImageCode create(ServletWebRequest request) {
         //        int width = securityProperties.getCode().getImage().getWidth();
         // 从http请求中获取width长度，如果获取不到使用securityProperties的默认值
         int width = ServletRequestUtils.getIntParameter(request.getRequest(), "width", securityProperties.getCode().getImage().getWidth());

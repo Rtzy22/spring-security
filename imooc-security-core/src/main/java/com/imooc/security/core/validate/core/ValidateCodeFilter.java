@@ -1,6 +1,7 @@
 package com.imooc.security.core.validate.core;
 
 import com.imooc.security.core.properties.SecurityProperties;
+import com.imooc.security.core.validate.core.image.ImageCode;
 import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;

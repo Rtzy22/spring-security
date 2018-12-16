@@ -1,30 +1,27 @@
 package com.imooc.security.core.validate.core;
 
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-import java.awt.image.BufferedImage;
 import java.time.LocalDateTime;
 
 /**
- * Created by 钟宇雷 on 2018/11/18.
+ * Created by zhongyulei on 2018/12/16.
  */
-@Data
-public class ImageCode {
-
-    private BufferedImage image;
+@Getter
+@Setter
+public class ValidateCode {
 
     private String code;
 
     private LocalDateTime expireTime;
 
-    public ImageCode(BufferedImage image, String code, int expireIn) {
-        this.image = image;
+    public ValidateCode(String code, int expireIn) {
         this.code = code;
         this.expireTime = LocalDateTime.now().plusSeconds(expireIn);
     }
 
-    public ImageCode(BufferedImage image, String code, LocalDateTime expireTime) {
-        this.image = image;
+    public ValidateCode(String code, LocalDateTime expireTime) {
         this.code = code;
         this.expireTime = expireTime;
     }
