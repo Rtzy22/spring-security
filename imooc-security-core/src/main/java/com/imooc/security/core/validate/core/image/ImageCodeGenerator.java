@@ -7,14 +7,17 @@ import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.context.request.ServletWebRequest;
+import org.springframework.stereotype.Component;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.Random;
 
 /**
+ * 图形验证码生成器
  * Created by 钟宇雷 on 2018/11/25.
  */
+@Component("imageValidateCodeGenerator")
 @Setter
 @Getter
 public class ImageCodeGenerator implements ValidateCodeGenerator {

@@ -76,7 +76,7 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
      * @return
      */
     private C generate(ServletWebRequest request) {
-        String type = getValidateCodeType().toString().toUpperCase();
+        String type = getValidateCodeType().toString().toLowerCase();
         String generatorName = type + ValidateCodeGenerator.class.getSimpleName();
 
         ValidateCodeGenerator generator = validateCodeGenerators.get(generatorName);
@@ -106,7 +106,7 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode> impl
      * @param validateCode
      * @throws Exception
      */
-    protected abstract void send(ServletWebRequest request, C validateCode);
+    protected abstract void send(ServletWebRequest request, C validateCode) throws Exception;
 
     /**
      * 保存校验码

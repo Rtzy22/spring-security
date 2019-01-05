@@ -69,7 +69,7 @@ public class BrowserSecurtityConfig extends WebSecurityConfigurerAdapter {
         http.addFilterBefore(validateCodeFilter, UsernamePasswordAuthenticationFilter.class)    // 添加验证码过滤器在用户验证过滤器前
                 .formLogin()
                 .loginPage("/authentication/require")        // 从这个页面登陆
-                .loginProcessingUrl("/authentication/form")
+                .loginProcessingUrl("/authentication/form")     //默认用户名密码请求验证的url
                 .successHandler(imoocAuthenticationSuccessHandler)
                 .failureHandler(imoocAuthenctiationFailureHandler)
                 .and()
